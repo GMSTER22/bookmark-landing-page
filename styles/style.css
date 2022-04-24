@@ -79,8 +79,10 @@ h3 {
 .btn {
     cursor: pointer;
     padding: 1rem 2rem;
-    border-radius: 3px;
+    border-radius: 5px;
     border: transparent;
+    transition: all .2s ease;
+    /* font-weight: 500; */
 }
 
 .btn-menu {
@@ -91,19 +93,46 @@ h3 {
 .btn-red { 
     background-color: var(--var-color-red-soft);
     color: var(--var-color-white);
+    border: 2px solid transparent;
 }
 
 .btn-blue { 
     background-color: var(--var-color-blue-soft);
     color: var(--var-color-white);
+    border: 2px solid transparent;
 }
 
 .btn-grey { 
     color: var(--var-color-blue-grayish);
+    border: 2px solid transparent;
 }
 
 .btn-nav {
     background-color: transparent;
+}
+
+/*-------------hover effect on buttons*/
+
+.btn-nav:hover {
+    color: var(--var-color-red-soft);
+}
+
+.btn-cta:hover {
+    color: var(--var-color-red-soft);
+    border: 2px solid var(--var-color-red-soft);
+    background-color: var(--var-color-white);
+}
+
+.btn-blue:hover { 
+    color: var(--var-color-blue-soft);
+    border: 2px solid var(--var-color-blue-soft);
+    background-color: var(--var-color-white);
+}
+
+.btn-grey:hover { 
+    background-color: var(--color-white);
+    color: var(--color-blue-grayish);
+    border: 2px solid var(--var-color-blue-grayish);
 }
 
 /*********** wrapper  ************/
@@ -264,6 +293,10 @@ h3 {
 
 .feature__item--active {
     border-bottom: 4px solid var(--var-color-red-soft);
+}
+
+.feature__item:hover {
+    color: var(--var-color-red-soft);
 }
 
 /***********  features-tabs  ************/
@@ -438,6 +471,11 @@ h3 {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 1.4rem;
+    transition: color .2s ease;
+}
+
+.site-footer__nav a:not(:first-of-type):hover {
+    color: var(--var-color-red-soft);
 }
 
 
@@ -447,6 +485,11 @@ h3 {
 
 .site-footer__socials a {
     padding: 0 15px;
+    transition: filter .2s ease;
+}
+
+.site-footer__socials a:hover {
+    filter: invert(41%) sepia(81%) saturate(731%) hue-rotate(320deg) brightness(101%) contrast(96%);
 }
 
 
