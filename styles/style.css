@@ -139,6 +139,7 @@ h3 {
 
 .container {
     max-width: 1440px;
+    margin: 0 auto;
     padding-left: 50px;
     padding-right: 50px;
 }
@@ -252,10 +253,11 @@ h3 {
 .site-header {
     padding-top: 20px;
     padding-bottom: 20px;
+    font-size: 1.4rem;
 }
 
 .site-header__nav {
-    width: 51%;
+    /* width: 51%; */
 }
 
 .site-header__nav a {
@@ -291,7 +293,7 @@ h3 {
     border-bottom: 1px solid var(--var-color-blue-grayish);
 }
 
-.feature__item--active {
+.feature__item[aria-selected = "true"] {
     border-bottom: 4px solid var(--var-color-red-soft);
 }
 
@@ -303,7 +305,6 @@ h3 {
 
 .feature__tabs {
     display: flex;
-    overflow-x: hidden;
 }
 
 .feature__tab {
@@ -455,6 +456,7 @@ h3 {
     color: var(--var-color-white);
     padding-bottom: 20px;
     padding-top: 20px;
+    font-size: 1.4rem;
 }
 
 .site-footer__nav {

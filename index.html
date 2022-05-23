@@ -70,14 +70,14 @@
           Our aim is to make it quick and easy for you to access your favourite websites. 
           Your bookmarks sync between your devices so you can access them on the go.
         </p>
-        <ul class="feature__list">
-          <li class="feature__item feature__item--active">Simple Bookmarking</li>
-          <li class="feature__item">Speedy Searching</li>
-          <li class="feature__item">Easy Sharing</li>
+        <ul class="feature__list" role="tablist">
+          <li class="feature__item" role="tab" aria-selected="true" aria-controls="panel-1" id="tab-1" tabindex="0">Simple Bookmarking</li>
+          <li class="feature__item" role="tab" aria-selected="false" aria-controls="panel-2" id="tab-2" tabindex="-1">Speedy Searching</li>
+          <li class="feature__item" role="tab" aria-selected="false" aria-controls="panel-3" id="tab-3" tabindex="-1">Easy Sharing</li>
         </ul>
 
         <div class="feature__tabs">
-          <div class="feature__tab feature__tab-1">
+          <div class="feature__tab feature__tab-1" id="panel-1" role="tabpanel" tabindex="0" aria-labelledby="tab-1">
             <div class="row">
               <div class="row__first-column--medium illustration">
                 <img class="illustration__img illustration__img-feature" src="./images/illustration-features-tab-1.svg" alt="illustration image of a deskop screen displaying bookmark actions.">
@@ -93,7 +93,7 @@
             </div>
           </div>
 
-          <div class="feature__tab feature__tab-2">
+          <div class="feature__tab feature__tab-2" id="panel-2" role="tabpanel" tabindex="0" aria-labelledby="tab-2" hidden>
             <div class="row">
               <div class="row__first-column--medium illustration">
                 <img class="illustration__img illustration__img-feature" src="./images/illustration-features-tab-2.svg" alt="illustration image of a deskop screen displaying bookmark actions.">
@@ -109,7 +109,7 @@
             </div>
           </div>
 
-          <div class="feature__tab feature__tab-3">
+          <div class="feature__tab feature__tab-3" id="panel-3" role="tabpanel" tabindex="0" aria-labelledby="tab-3" hidden>
             <div class="row">
               <div class="row__first-column--medium illustration">
                 <img class="illustration__img illustration__img-feature" src="./images/illustration-features-tab-3.svg" alt="illustration image of a deskop screen displaying bookmark actions.">
