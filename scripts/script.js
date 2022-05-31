@@ -7,13 +7,27 @@
 
     let panelList = feature.querySelector( '.feature__tabs' );
 
-    // let panels = Array.from( feature.querySelectorAll( '[ role = "tabpanel" ]' ) );
-
-    // let tabs = Array.from( tabList.querySelectorAll( '[ role = "tab" ]' ) );
+    let tabs = Array.from( tabList.querySelectorAll( '[ role = "tab" ]' ) );
 
     let activeTab = tabList.querySelector( '[ aria-selected = "true" ]' );
 
     let activePanel = panelList.querySelector( `#${activeTab.getAttribute( 'aria-controls' )}` );
+
+    function deselectTab() {
+
+      activeTab.setAttribute( 'aria-selected', false );
+
+      activePanel.setAttribute( 'hidden', true );
+
+    }
+
+    function selectTab( target ) {
+
+      target.setAttribute( 'aria-selected', true );
+
+      panelList.querySelector( `#${ target.getAttribute( 'aria-controls' ) }` ).hidden = false;
+
+    } 
 
     tabList.addEventListener( 'click', event => {
 
@@ -26,14 +40,10 @@
       activeTab = tabList.querySelector( '[ aria-selected = "true" ]' );
 
       activePanel = panelList.querySelector( `#${activeTab.getAttribute( 'aria-controls' )}` );
-      
-      activeTab.setAttribute( 'aria-selected', false );
 
-      activePanel.setAttribute( 'hidden', true );
+      deselectTab();
 
-      target.setAttribute( 'aria-selected', true );
-
-      panelList.querySelector(`#${ target.getAttribute( 'aria-controls' ) }`).hidden = false;
+      selectTab( target );
       
     } );
 
@@ -42,52 +52,54 @@
 
       if ( event.key === "ArrowRight") {
 
+        activeTab = event.target;
+
+        activePanel = panelList.querySelector( `#${activeTab.getAttribute( 'aria-controls' )}` );
+
+        deselectTab();
+
         if ( ! event.target.nextElementSibling ) {
 
           event.target.parentElement.children[0].focus();
 
-          event.target.parentElement.setAttribute( 'tabindex', 0 );
+          selectTab( event.target.parentElement.children[0] );
+
+        } else {
+
+          event.target.nextElementSibling.focus();
+
+          selectTab( event.target.nextElementSibling );
 
         }
-
-        // activeTab.setAttribute( 'hidden', true );
-
-        // activePanel = panelList.querySelector( `#${activeTab.getAttribute( 'aria-controls' ) }` );
-
-        // event.target.nextElementSibling.setAttribute( 'hidden', false );
-
-        // event.target.nextElementSibling.setAttribute( 'aria-selected', true );
-
-        // panelList.querySelector( `#${ event.target.nextElementSibling.getAttribute( 'aria-controls' ) }` ).hidden = false;
-
-        event.target.nextElementSibling.setAttribute( 'tabindex', 0 );
-
-        event.target.nextElementSibling.focus();
 
       }
 
       if ( event.key === "ArrowLeft") {
 
+        activeTab = event.target;
+
+        activePanel = panelList.querySelector( `#${activeTab.getAttribute( 'aria-controls' )}` );
+
+        deselectTab()
+
         if ( ! event.target.previousElementSibling ) {
 
-          event.target.parentElement.children[event.target.parentElement.children.length - 1].focus();
+          event.target.parentElement.children[ tabs.length - 1].focus();
 
-          event.target.parentElement.setAttribute( 'tabindex', 0 );
+          selectTab( event.target.parentElement.children[ tabs.length - 1 ] );
+
+        } else {
+
+          event.target.previousElementSibling.focus();
+
+          selectTab( event.target.previousElementSibling );
 
         }
 
-        event.target.previousElementSibling.setAttribute( 'tabindex', 0 );
-
-        event.target.previousElementSibling.focus();
-
-        changeTabs( event );
-
       }
+      
+    } );
 
-    } )
-
-  } );
-
-  
+  } );  
 
 }
